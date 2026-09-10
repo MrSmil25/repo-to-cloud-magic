@@ -40,6 +40,7 @@ import { Route as AuthenticatedTransactionsRouteImport } from './routes/_authent
 import { Route as AuthenticatedWarningsRouteImport } from './routes/_authenticated/warnings'
 import { Route as AuthenticatedWorkspaceRouteImport } from './routes/_authenticated/workspace'
 import { Route as AuthenticatedAdminCategoriesRouteImport } from './routes/_authenticated/admin.categories'
+import { Route as AuthenticatedAdminSectionsRouteImport } from './routes/_authenticated/admin.sections'
 import { Route as AuthenticatedCompaniesIndexRouteImport } from './routes/_authenticated/companies.index'
 import { Route as AuthenticatedCompaniesIdRouteImport } from './routes/_authenticated/companies.$id'
 import { Route as AuthenticatedEventsIndexRouteImport } from './routes/_authenticated/events.index'
@@ -227,6 +228,12 @@ const AuthenticatedAdminCategoriesRoute =
     path: '/admin/categories',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedAdminSectionsRoute =
+  AuthenticatedAdminSectionsRouteImport.update({
+    id: '/admin/sections',
+    path: '/admin/sections',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedCompaniesIndexRoute =
   AuthenticatedCompaniesIndexRouteImport.update({
     id: '/companies/',
@@ -376,6 +383,7 @@ export interface FileRoutesByFullPath {
   '/warnings': typeof AuthenticatedWarningsRoute
   '/workspace': typeof AuthenticatedWorkspaceRoute
   '/admin/categories': typeof AuthenticatedAdminCategoriesRoute
+  '/admin/sections': typeof AuthenticatedAdminSectionsRoute
   '/companies/$id': typeof AuthenticatedCompaniesIdRoute
   '/events/$id': typeof AuthenticatedEventsIdRoute
   '/fund-requests/$id': typeof AuthenticatedFundRequestsIdRoute
@@ -428,6 +436,7 @@ export interface FileRoutesByTo {
   '/warnings': typeof AuthenticatedWarningsRoute
   '/workspace': typeof AuthenticatedWorkspaceRoute
   '/admin/categories': typeof AuthenticatedAdminCategoriesRoute
+  '/admin/sections': typeof AuthenticatedAdminSectionsRoute
   '/companies/$id': typeof AuthenticatedCompaniesIdRoute
   '/events/$id': typeof AuthenticatedEventsIdRoute
   '/fund-requests/$id': typeof AuthenticatedFundRequestsIdRoute
@@ -482,6 +491,7 @@ export interface FileRoutesById {
   '/_authenticated/warnings': typeof AuthenticatedWarningsRoute
   '/_authenticated/workspace': typeof AuthenticatedWorkspaceRoute
   '/_authenticated/admin/categories': typeof AuthenticatedAdminCategoriesRoute
+  '/_authenticated/admin/sections': typeof AuthenticatedAdminSectionsRoute
   '/_authenticated/companies/$id': typeof AuthenticatedCompaniesIdRoute
   '/_authenticated/events/$id': typeof AuthenticatedEventsIdRoute
   '/_authenticated/fund-requests/$id': typeof AuthenticatedFundRequestsIdRoute
@@ -536,6 +546,7 @@ export interface FileRouteTypes {
     | '/warnings'
     | '/workspace'
     | '/admin/categories'
+    | '/admin/sections'
     | '/companies/$id'
     | '/events/$id'
     | '/fund-requests/$id'
@@ -588,6 +599,7 @@ export interface FileRouteTypes {
     | '/warnings'
     | '/workspace'
     | '/admin/categories'
+    | '/admin/sections'
     | '/companies/$id'
     | '/events/$id'
     | '/fund-requests/$id'
@@ -641,6 +653,7 @@ export interface FileRouteTypes {
     | '/_authenticated/warnings'
     | '/_authenticated/workspace'
     | '/_authenticated/admin/categories'
+    | '/_authenticated/admin/sections'
     | '/_authenticated/companies/$id'
     | '/_authenticated/events/$id'
     | '/_authenticated/fund-requests/$id'
@@ -891,6 +904,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminCategoriesRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/admin/sections': {
+      id: '/_authenticated/admin/sections'
+      path: '/admin/sections'
+      fullPath: '/admin/sections'
+      preLoaderRoute: typeof AuthenticatedAdminSectionsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/companies/': {
       id: '/_authenticated/companies/'
       path: '/companies'
@@ -1060,6 +1080,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedWarningsRoute: typeof AuthenticatedWarningsRoute
   AuthenticatedWorkspaceRoute: typeof AuthenticatedWorkspaceRoute
   AuthenticatedAdminCategoriesRoute: typeof AuthenticatedAdminCategoriesRoute
+  AuthenticatedAdminSectionsRoute: typeof AuthenticatedAdminSectionsRoute
   AuthenticatedCompaniesIdRoute: typeof AuthenticatedCompaniesIdRoute
   AuthenticatedEventsIdRoute: typeof AuthenticatedEventsIdRoute
   AuthenticatedFundRequestsIdRoute: typeof AuthenticatedFundRequestsIdRoute
@@ -1108,6 +1129,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedWarningsRoute: AuthenticatedWarningsRoute,
   AuthenticatedWorkspaceRoute: AuthenticatedWorkspaceRoute,
   AuthenticatedAdminCategoriesRoute: AuthenticatedAdminCategoriesRoute,
+  AuthenticatedAdminSectionsRoute: AuthenticatedAdminSectionsRoute,
   AuthenticatedCompaniesIdRoute: AuthenticatedCompaniesIdRoute,
   AuthenticatedEventsIdRoute: AuthenticatedEventsIdRoute,
   AuthenticatedFundRequestsIdRoute: AuthenticatedFundRequestsIdRoute,
