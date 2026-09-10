@@ -263,7 +263,7 @@ function AppLayout() {
       .filter((section) =>
         isSectionVisible(section.key, {
           role: profile?.role,
-          division: (profile as { division?: string | null } | null | undefined)?.division,
+          division: (profile as { division?: string | null } | null | undefined)?.division ?? null,
           settings: sectionSettings,
           overrides: sectionOverrides,
         }),
