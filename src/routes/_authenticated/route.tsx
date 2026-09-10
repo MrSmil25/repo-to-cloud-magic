@@ -264,8 +264,8 @@ function AppLayout() {
         isSectionVisible(section.key, {
           role: profile?.role,
           division: (profile as { division?: string | null } | null | undefined)?.division ?? null,
-          settings: sectionSettings,
-          overrides: sectionOverrides,
+          settings: sectionSettings ?? null,
+          overrides: sectionOverrides ?? null,
         }),
       );
     // eslint-disable-next-line react-hooks/exhaustive-deps
